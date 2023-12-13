@@ -6,11 +6,13 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .models import Product, Category, Review
 from .serializers import ProductSerializer, ReviewSerializer
 from .permissions import IsAdminOrReadOnly
+from .paginators import ProductPaginator
 
 
 class ProductViewSet(ModelViewSet):
     serializer_class = ProductSerializer
     permission_classes = (IsAdminOrReadOnly,)
+    pagination_class = ProductPaginator
 
     def get_queryset(self):
         if pk := self.kwargs.get('product_pk'):
