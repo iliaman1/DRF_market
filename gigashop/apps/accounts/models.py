@@ -7,7 +7,6 @@ from core.models import BaseModel
 
 class Profile(BaseModel):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=64, verbose_name=_('Никнэйм'))
     avatar = models.ImageField(
         null=True,
         blank=True,
@@ -15,10 +14,10 @@ class Profile(BaseModel):
         default='images/product/default_avatar.png',
         verbose_name=_('Аватар')
     )
-    email = models.EmailField(max_length=64, verbose_name=_('Почта'))
-
-    def __str__(self):
-        return self.name
+    email_verified = models.BooleanField(
+        default=False,
+        verbose_name=_('Почта подтверждена')
+    )
 
     class Meta:
         ordering = ['created_at']
