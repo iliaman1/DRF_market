@@ -1,7 +1,8 @@
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework import routers
-from .views import ProductViewSet, ReviewListCreate
+
+from apps.market.views import ProductViewSet, ReviewListCreate
 
 router = routers.SimpleRouter()
 router.register(r'product', ProductViewSet, basename='product')
