@@ -14,6 +14,8 @@ psycopg2 = "^2.9.9"
 psycopg = "^3.1.13"
 pillow = "^10.1.0"
 djangorestframework-simplejwt = "^5.3.1"
+django-dramatiq = "^0.11.6"
+redis = "^5.0.1"
 
 
 [build-system]
